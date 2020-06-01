@@ -1,0 +1,16 @@
+<% provide(:task_header, 'My Tasks') %>
+<div class="container">
+  <% @task.each do |task| %>
+    <p><%= link_to  task.name, edit_task_path(task.id) %></p>
+    <ul>
+      <li><b>Description: </b> <%= task.description %></li>
+      <li><%= check_box_tag(:completion, class: 'form-check-input')%></li>
+    </ul>
+    <%# <li><%= radio_button('task', 'completion', 'no')  </li>%>
+  <% end %>
+</div>
+
+<div class="container">
+  <%= link_to "New Task", new_path %>
+</div>
+<hr class="my-4">
